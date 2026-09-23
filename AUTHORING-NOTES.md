@@ -78,6 +78,11 @@ AUTHORING-NOTES.
   heavy at 90 commands on one page; inline code is compact but has no copy
   control. A text directive like `:copyline[sbx version]` — one slim row, one
   copy button — would close the gap.
+- **The terminal needs a projector mode.** Font size and foreground contrast
+  are fixed by the runtime's terminal theme; from the back of a workshop room
+  the default gray-on-dark output is hard to read on a projector. An
+  authorable or user-facing setting — larger font, near-white foreground —
+  would serve live rooms directly. Browser zoom is the current workaround.
 - **Embedded terminal panels want learner-side sizing.** On a terminal-only
   page, a draggable split between two panels — or a collapse control so one
   terminal can go full-height — would remove the need to author fixed pixel
