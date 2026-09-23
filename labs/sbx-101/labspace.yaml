@@ -2,7 +2,7 @@ title: "SBX 101: Hands-on with Docker Sandboxes"
 description: "Create a sandbox, prove the isolation, shape the network, attach MCP tools, ship hardened output, package it as a kit."
 
 catalog:
-  title: "SBX 101 · Hands-on lab (simulated)"
+  title: "SBX 101 · Self-guided lab (simulated)"
   description: "Step-by-step instructions beside the terminal: create a sandbox, prove its isolation, govern its network, attach tools, harden images, and package everything as a kit."
   icon: shield_lock
   order: 2

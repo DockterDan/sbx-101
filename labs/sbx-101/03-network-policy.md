@@ -85,6 +85,14 @@ local-policy   local   all   network: 193 allow, 1 deny; filesystem read: 1 allo
 
 193 allows now (your nasa.gov rule joined the bundle), and **1 deny** — the one you just wrote.
 
+The summary counts the rules; to see them by name — ids included — use the wide view:
+
+```bash terminal-id=b
+sbx policy ls --wide
+```
+
+Each custom rule appears as its own row, and the `RULE_ID` column is what `sbx policy rm network --id` accepts.
+
 ## 3.5 Verify it's enforced
 
 Rules apply immediately on most setups. If one ever doesn't take (say, mid-connection), bounce the sandbox: `sbx stop sandbox-alpha`, then `sbx run --name sandbox-alpha`.

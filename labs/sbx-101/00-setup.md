@@ -11,7 +11,7 @@ In this lab you will:
 - Create and manage sandboxes from the CLI
 - Prove the isolation boundary is real — filesystem, secrets, and all
 - Control the agent's network with policy rules and an audit log
-- Hand the agent tools over MCP — including the gateway gotcha everyone hits
+- Hand the agent tools over MCP, from registration to the gateway
 - Build, scan, and harden a container image the agent writes for you
 - Package the whole setup as a reusable kit
 
@@ -98,16 +98,16 @@ Balanced is the policy this whole workshop assumes: everything denied by default
 
 The agent needs an API key — but the sandbox should never *hold* it. `sbx` stores the key on your machine, outside the sandbox, and injects it at the network layer, so the key never enters the VM.
 
-Here's your (workshop-issued, fake) Anthropic key — **copy it**:
-
-```text no-run-button
-sk-ant-api03-sbx101-demo-2f9d4e8a7c1b0356
-```
-
-Run the command; at the `Enter secret:` prompt, paste the key and press Enter. The input is masked as you type, and the simulator accepts any value here, so a made-up key works too:
+Run the command — it opens an `Enter secret:` prompt:
 
 ```bash terminal-id=a
 sbx secret set -g anthropic
+```
+
+Here's your (workshop-issued, fake) Anthropic key. **Copy it**, paste it at the prompt, and press Enter. The input is masked as you type, and the simulator accepts any value here, so a made-up key works too:
+
+```text no-run-button
+sk-ant-api03-sbx101-demo-2f9d4e8a7c1b0356
 ```
 
 Verify it's stored:

@@ -161,7 +161,7 @@ sbx run claude
 ```
 
 The first run pulls the sandbox template image, then drops you into Claude Code
-running inside a microVM. From here, follow the hands-on lab's steps in order —
+running inside a microVM. From here, follow the self-guided lab's steps in order —
 the commands are the same ones you will type in your real terminal, and
 `sbx ls`, `sbx policy log`, and the rest behave as the lab shows.
 

@@ -35,7 +35,7 @@ sbx mcp --help
 
 ## 4.2 Register two servers
 
-Register the **Wikipedia** MCP server. It runs as a Docker container on the host — `--args` is comma-separated (a common gotcha; it translates to `docker run -i --rm mcp/wikipedia-mcp`). In **Terminal B**:
+Register the **Wikipedia** MCP server. It runs as a Docker container on the host. Note that `--args` is comma-separated; the registration translates to `docker run -i --rm mcp/wikipedia-mcp`. In **Terminal B**:
 
 ```bash terminal-id=b
 sbx mcp add wiki-mcp --command docker --args "run,-i,--rm,mcp/wikipedia-mcp"
@@ -81,7 +81,7 @@ Blocked — `wikipedia.org` isn't on any allow list, so the fetch dies at the ne
 sbx policy log sandbox-alpha
 ```
 
-**Part 2 — attach the tools... and hit the wall.** Try loading a server into the running sandbox, in **Terminal B**:
+**Part 2 — attach the tools.** Try loading a server into the running sandbox, in **Terminal B**:
 
 ```bash terminal-id=b
 sbx mcp load wiki-mcp --sandbox sandbox-alpha
@@ -94,6 +94,8 @@ ERROR: add "wiki-mcp" to sandbox "sandbox-alpha": add MCP gateway server: reques
 ```
 
 Here's why: each sandbox gets its **MCP gateway at creation time**. `sandbox-alpha` was created back in Step 1 — before MCP was even enabled — so there's no gateway to load into. `sbx mcp load` is for adding *more* servers to a sandbox that already has a gateway.
+
+> **Note:** this flow matches the sbx release this lab's outputs were captured from. Recent releases have reworked MCP management; on a current machine, `sbx mcp --help` is authoritative.
 
 The fix is the honest one: recreate the sandbox with its tools declared up front. Leave the session in Terminal A (`/exit`), then in **Terminal A**:
 

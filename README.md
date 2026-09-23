@@ -8,16 +8,17 @@ follow-along terminal page for live sessions — four cards, one deploy.
 - **`labs/sbx-101-slides/`** — the opening deck (`kind: slides`). Its demo
   terminal shares the lab's simulator, so the commands on stage are the
   commands in the lab.
-- **`labs/sbx-101/`** — the hands-on lab. Everything in the terminal is
+- **`labs/sbx-101/`** — the self-guided lab. Everything in the terminal is
   simulated in the browser; there is nothing to install and no API key is
   required. Every CLI output was captured from real `sbx` sessions; see
   [AUTHORING-NOTES.md](AUTHORING-NOTES.md).
 - **`labs/run-it-for-real/`** — the real-machine setup guide: pre-flight
   checklist, install, sign-in, API key. A deck-style entry with no terminal
   pane, because its commands run on the reader's own machine.
-- **`labs/live/`** — the follow-along page for live sessions: the two workshop
-  terminals and nothing else, for rooms that follow the presenter rather than
-  written instructions. Direct link: `…/#/labs/live/`.
+- **`labs/live/`** — the follow-along page for live sessions: the workshop's
+  commands in session order, without explanations, beside the same terminals.
+  The presenter narrates; the room runs, copies, or types. Direct link:
+  `…/#/labs/live/`.
 
 This repo pins the **`docker-next`** image tag (the updated Docker brand build)
 in `compose.yaml` and `.github/workflows/deploy.yml`. Move to a released tag

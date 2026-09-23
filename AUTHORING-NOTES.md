@@ -28,13 +28,16 @@ AUTHORING-NOTES.
 
 - **Four catalog entries, one deploy** — deck (order 1), lab with instructions
   (order 2), real-machine setup guide (order 3), and a live follow-along page
-  (order 4). The live page is a one-slide deck with `chrome: false` whose only
-  content is the two workshop terminals — the closest the platform comes to a
-  terminal-only view (a candidate upstream feature ask). The setup guide is
-  also a deck, because a `kind: lab` always renders a terminal pane and its
-  commands belong on the reader's own machine. A command cheat-sheet entry was
-  built and then cut to keep the landing page at four cards; the same content
-  ships as the lab's Reference tab (`resources.html`).
+  (order 4). The live page went through two shapes: first a chrome-less
+  one-slide deck holding only the two terminals (the closest the platform
+  comes to a terminal-only view — still a candidate upstream ask), then its
+  final form: a lab whose sections are the workshop's commands in session
+  order with no explanations, generated from the main lab's fences, so the
+  room can run or copy long commands instead of transcribing them. The setup
+  guide is a deck, because a `kind: lab` always renders a terminal pane and
+  its commands belong on the reader's own machine. A command cheat-sheet entry
+  was built and then cut to keep the landing page at four cards; the same
+  content ships as the lab's Reference tab (`resources.html`).
 - **`docker-next` image tag** pinned in compose + deploy per Michael's
   guidance (updated Docker brand build; not the platform default). Light mode
   is the deck default — projectors handle it better.
@@ -63,6 +66,18 @@ AUTHORING-NOTES.
   grid button back to the landing page; the lab view has a back arrow in the
   top-left instead. One affordance in one place across both views would help
   learners moving between a workshop's entries.
+- **A first-class audit-log primitive would deepen realism.** The lab fakes
+  `sbx policy log` with phase-gated snapshot tables that grow along the flow,
+  timestamps frozen from captures. A `then.log` append effect (event, host,
+  decision) plus a renderer — with a deterministic pseudo-clock — would let
+  every allow/block accumulate the way the real CLI's log does, in any order
+  the learner plays.
+- **A compact copy-line form would serve command sheets.** The live-session
+  page wants a dense list where every command has its own copy button. The
+  only per-item copy affordance is a full fenced block, whose window chrome is
+  heavy at 90 commands on one page; inline code is compact but has no copy
+  control. A text directive like `:copyline[sbx version]` — one slim row, one
+  copy button — would close the gap.
 - **Embedded terminal panels want learner-side sizing.** On a terminal-only
   page, a draggable split between two panels — or a collapse control so one
   terminal can go full-height — would remove the need to author fixed pixel
