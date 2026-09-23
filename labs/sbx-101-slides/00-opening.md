@@ -24,12 +24,12 @@ eyebrow: Day 0 · September 23
 
 ### Workshops
 
-| Time | Workshop | Lead | Where |
-| ---- | -------- | ---- | ----- |
-| 10:45 – 12:45 | SBX 101: Hands-on with Docker Sandboxes | Dan Ndombe | Stage 8 |
-| 1:30 – 3:00 | The AI-Ready Developer Environment — Local Setup, Reproducibility, and Docker | Michael Irwin | Stage 8 |
-| 3:45 – 5:30 | Docker's Agentic Platform: Sandboxes, MCP, and the Infrastructure of Autonomous Development | Oleg Šelajev | Stage 8 |
-| 3:45 – 5:30 | Securing the Agentic Stack: Docker Hardened Images and Supply Chain Security | Ajeet Raina | Stage 10 |
+| Time | Workshop | Lead |
+| ---- | -------- | ---- |
+| 10:45–12:45 | SBX 101: Hands-on with Docker Sandboxes | Dan Ndombe · Stage 8 |
+| 1:15–3:15 | The AI-Ready Developer Environment | Michael Irwin · Stage 8 |
+| 3:45–5:45 | Docker's Agentic Platform: Sandboxes and MCP | Oleg Šelajev · Stage 8 |
+| 3:45–5:45 | Securing the Agentic Stack with Hardened Images | Ajeet Raina · Stage 10 |
 
 <!-- region -->
 
@@ -37,11 +37,11 @@ eyebrow: Day 0 · September 23
 
 | Time | Session | Speaker |
 | ---- | ------- | ------- |
-| 10:00 – 10:30 | Making "Works on All Machines" Work for Agent Environments | Michael Irwin |
-| 11:00 – 11:30 | Docker does that? Five Docker capabilities you did not know about | Ajeet Raina + Kristiyan Velkov |
-| 1:00 – 1:30 | Tools, Sandboxes, and the Plumbing of Agentic Development | Oleg Šelajev |
-| 2:00 – 2:30 | Supply Chain Security When Agents Write the Code | Ajeet Raina |
-| 3:00 – 3:30 | Give the Agent Its Own Machine | Dan Ndombe |
+| 10:00–10:30 | Making "Works on All Machines" Work for Agents | Michael Irwin |
+| 11:00–11:30 | Docker does that? Five capabilities you did not know | Ajeet Raina, Kristiyan Velkov |
+| 1:00–1:30 | Tools, Sandboxes, and the Plumbing of Agentic Development | Oleg Šelajev |
+| 2:00–2:30 | Supply Chain Security When Agents Write the Code | Ajeet Raina |
+| 3:00–3:30 | Give the Agent Its Own Machine | Dan Ndombe |
 
 ---
 
