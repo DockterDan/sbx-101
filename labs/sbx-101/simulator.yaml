@@ -61,13 +61,13 @@ state:
 
 settings:
   streaming: true
-  agentThinkMs: 2600
+  agentThinkMs: 3600
   pace:
-    layer: 550
-    boot: 1400
-    pull: 2200
-    build: 2000
-    scan: 3200
+    layer: 700
+    boot: 2800
+    pull: 4200
+    build: 4500
+    scan: 4500
 
 # One control so the Settings dialog (and its Reset button) exists in the UI.
 # It mirrors Step 3's allow rule — useful if a learner skips ahead.
@@ -2255,20 +2255,20 @@ scenarios:
             2. "NASA Outlines Preliminary Artemis III Mission Plans" — nasa.gov
             3. "NASA Marches Toward Artemis III Mission in 2027, Names Crew Members" — nasa.gov
       output:
-        - "● I have MCP tools for this — let me use both, as asked."
+        - { text: "● I have MCP tools for this — let me use both, as asked.", delay: medium }
         - ""
-        - "● Background (via wiki-mcp → get_summary): Artemis is NASA's program to"
+        - { text: "● Background (via wiki-mcp → get_summary): Artemis is NASA's program to", delay: pull }
         - "  return humans to the Moon, built on SLS, Orion, and commercial landers."
         - "  Artemis I flew uncrewed in 2022; Artemis II — the first crewed mission —"
         - "  flew its four astronauts around the Moon this April and came home safely."
         - ""
-        - "● Recent news (via duck-mcp → search): the program was restructured in"
+        - { text: "● Recent news (via duck-mcp → search): the program was restructured in", delay: pull }
         - "  February — Artemis III becomes an Earth-orbit rendezvous-and-docking"
         - "  test targeted for 2027, and the first crewed lunar landing shifts to"
         - "  Artemis IV, planned by 2028. The Artemis III crew was named June 9:"
         - "  Bresnik, Parmitano (ESA's first Artemis assignment), and Rubio."
         - ""
-        - "● Tools I used: wiki-mcp (get_summary) for stable background, duck-mcp"
+        - { text: "● Tools I used: wiki-mcp (get_summary) for stable background, duck-mcp", delay: scan }
         - "  (search) for the recent items — as you specified. Earlier my direct"
         - "  fetch to en.wikipedia.org was blocked by network policy; these MCP"
         - "  servers run on your host, so the lookups happened outside my sandbox's"
