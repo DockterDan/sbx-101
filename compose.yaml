@@ -1,0 +1,50 @@
+# Authoring environment for this workshop. Uses the prebuilt Simspace images and
+# mounts only ./labs — you never need Node or the app source.
+#
+#   docker compose up dev                 # live preview at http://localhost:5173
+#   docker compose run --rm validate      # validate labs + regenerate labs.json
+#
+# NOTE: this repo pins the docker-next tag (the updated Docker brand build) so
+# the local preview matches the deployed site. Override with
+#   export SIMSPACE_AUTHORING_IMAGE=dockersamples/simspace-authoring:latest
+# if you need to compare against the old brand.
+
+name: sbx-101
+
+services:
+  # Live preview. Edits to ./labs show on browser refresh. The catalog (labs.json)
+  # is generated on the fly by the app, so there's nothing to build.
+  dev:
+    image: ${SIMSPACE_AUTHORING_IMAGE:-dockersamples/simspace-authoring:docker-next}
+    command: npm run dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./labs:/usr/local/app/public/labs
+    depends_on:
+      - pulse
+
+  # Presence + analytics backend, local authoring convenience only. Gives the
+  # full experience while rehearsing: live presence and the instructor insights
+  # dashboard at #/labs/<id>/insights (token: dev-token). The deployed site has
+  # tracking DISABLED unless pulse-endpoint is set in .github/workflows/deploy.yml.
+  pulse:
+    image: ${SIMSPACE_PULSE_IMAGE:-dockersamples/simspace-pulse:latest}
+    ports:
+      - "8888:8888"
+    environment:
+      STATS_TOKEN: "dev-token"
+    volumes:
+      - pulse-data:/data
+
+  # One-shot validator: checks every lab under labs/ and regenerates labs.json.
+  # Run with `docker compose run --rm validate`.
+  validate:
+    image: ${SIMSPACE_AUTHORING_IMAGE:-dockersamples/simspace-authoring:docker-next}
+    profiles: ["tools"]
+    command: npm run validate-lab -- /labs
+    volumes:
+      - ./labs:/labs
+
+volumes:
+  pulse-data:

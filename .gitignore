@@ -1,0 +1,14 @@
+# Generated catalog — produced by validate/dev/deploy, never committed.
+labs.json
+labs/labs.json
+
+# Machine-specific sandbox env overrides.
+local.sbxenv.yaml
+
+# macOS noise (the Icon file has a trailing carriage return).
+.DS_Store
+Icon
+Icon?
+
+# Local env files.
+.env

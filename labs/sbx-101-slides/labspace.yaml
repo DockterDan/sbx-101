@@ -1,0 +1,53 @@
+# The deck that opens SBX 101. Same manifest format as a lab, with
+# `kind: slides` — it ships in the same build and shows up as its own card.
+kind: slides
+
+title: "SBX 101: Docker Sandboxes for AI Agents"
+description: "Run agents freely. Safely."
+
+catalog:
+  title: "SBX 101 · Slides"
+  description: "Start here. Why coding agents need a real boundary, and how Docker Sandboxes provide one."
+  icon: co_present
+  # Deck first, lab second, real-terminal card third.
+  order: 1
+
+version: "1.0.0"
+
+# No progress tracking: keeps "Completed" chips off the landing page.
+tracking: false
+
+# Light surface by default — projectors handle light mode better.
+theme: light
+
+# Branded chrome, set once. The docker-next runtime carries the updated Docker
+# brand theme. No `logo:` on purpose: the theme's own chrome covers the mark.
+# To pin an explicit logo, drop the official SVGs into assets/ (see README).
+brand:
+  eyebrow: "Docker SBX"
+  source: "DOCKER · 2026"
+
+# Point at the SIBLING LAB's spec: the demos on these slides run the exact
+# scripted commands the learners will run themselves, so the two can't drift.
+simulator: ../sbx-101/simulator.yaml
+
+# The demo terminal on the slides. The lab's scenarios are terminal-agnostic,
+# so any id works; `demo` keeps the slides readable.
+terminals:
+  - id: demo
+    title: Demo
+    icon: terminal
+
+# Same seed file the lab uses, so filesystem demos show the same tree.
+files:
+  sbx/README.txt: |
+    This directory (~/workshop/sbx) is your sandbox workspace.
+    It is the ONLY directory the agent can see.
+
+slides:
+  - title: Opening
+    contentPath: 00-opening.md
+  - title: The boundary
+    contentPath: 01-sbx.md
+  - title: Live
+    contentPath: 02-live.md

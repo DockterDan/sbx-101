@@ -1,0 +1,32 @@
+# Docker Sandbox environment for authoring these labs.
+#
+#   sbx env run          # create the sandbox (if needed) and attach to the agent
+#   sbx env rm           # tear it down
+#
+# One command gets you an agent that already knows how to author Simspace
+# content, with Docker inside the sandbox for `docker compose up dev` and both
+# authoring ports on your own browser. Needs sbx 0.39.0 or later; `sbx env` is
+# experimental, so this file's format may still change.
+#
+# Machine-specific tweaks belong in a `local.sbxenv.yaml` (gitignored) passed
+# alongside this one — `sbx env run .sbxenv.yaml local.sbxenv.yaml`.
+
+schemaVersion: "1"
+
+agent: claude
+
+kits:
+  # The authoring skills (authoring-lab, authoring-slidedeck,
+  # importing-slidedeck) plus the guidance, ports, and network rules the
+  # authoring loop needs. `latest` re-resolves on every sandbox create, so this
+  # repo always authors against the current Simspace format.
+  - docker.io/dockersamples/simspace-authoring-kit:latest
+
+ports:
+  # `docker compose up dev` — the live preview.
+  - sandbox: 5173
+    host: 5173
+  # pulse — presence, analytics, and the instructor insights dashboard at
+  # #/labs/<id>/insights (token `dev-token`).
+  - sandbox: 8888
+    host: 8888

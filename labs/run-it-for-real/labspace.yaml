@@ -1,0 +1,31 @@
+# The real-machine setup guide, as a deck-style entry: instruction pages with
+# copyable commands and NO terminal pane — these commands are for the reader's
+# own machine, not the simulator. (A `kind: lab` always renders a terminal; a
+# deck does not, which is why this entry is a deck.)
+kind: slides
+
+title: "Run it on your machine"
+description: "Install the sbx CLI and repeat the workshop steps on your own machine."
+
+catalog:
+  title: "SBX 101 · Run it on your machine"
+  description: "Follow the workshop on your own machine with the real CLI. Setup is required and takes about ten minutes."
+  icon: terminal
+  order: 3
+
+version: "2.0.0"
+
+# No progress tracking: keeps "Completed" chips off the landing page.
+tracking: false
+
+theme: light
+
+brand:
+  eyebrow: "Docker SBX · Setup"
+  source: "DOCKER · 2026"
+
+# No simulator on purpose: nothing on these pages runs in the browser.
+
+slides:
+  - title: Setup
+    contentPath: 00-setup.md

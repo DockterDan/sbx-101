@@ -1,0 +1,42 @@
+# The follow-along page for the live presentation: a one-slide deck whose only
+# content is the two workshop terminals, with the slide chrome turned off. It
+# points at the lab's simulator, so every command behaves exactly as it does in
+# the hands-on lab and in the on-stage demos.
+kind: slides
+
+title: "SBX 101 · Live session"
+description: "The follow-along terminal for the live presentation."
+
+catalog:
+  title: "SBX 101 · Live session (simulated)"
+  description: "The workshop terminals without written instructions, for following along with the live presentation."
+  icon: terminal
+  order: 4
+
+version: "1.0.0"
+
+# No progress tracking: keeps "Completed" chips off the landing page.
+tracking: false
+
+theme: light
+
+simulator: ../sbx-101/simulator.yaml
+
+# Same terminal ids as the hands-on lab: A talks to the agent, B watches logs.
+terminals:
+  - id: a
+    title: Terminal A
+    icon: terminal
+  - id: b
+    title: Terminal B
+    icon: dns
+
+# Same seed file as the lab, so the filesystem looks identical.
+files:
+  sbx/README.txt: |
+    This directory (~/workshop/sbx) is your sandbox workspace.
+    It is the ONLY directory the agent can see.
+
+slides:
+  - title: Terminal
+    contentPath: 00-terminal.md

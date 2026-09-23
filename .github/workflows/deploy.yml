@@ -1,0 +1,32 @@
+name: Deploy labs to GitHub Pages
+
+# Validates the labs and publishes them to GitHub Pages on every push to main.
+# All the work lives in the reusable workflow in dockersamples/simspace.
+# Enable Pages first: Settings → Pages → Source: "GitHub Actions".
+#
+# runtime-tag is pinned to "docker-next" — the updated Docker brand build —
+# per Michael's guidance for WeAreDevelopers 2026. Move it to a released
+# version (e.g. "1") after the conference.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    uses: dockersamples/simspace/.github/workflows/deploy-lab.yml@main
+    with:
+      labs-dir: labs
+      runtime-tag: "docker-next"
+      title: "SBX 101: Hands-on with Docker Sandboxes"
+      # OPTIONAL — presence + analytics. Point this at a hosted `pulse`
+      # backend to turn on live presence and the instructor insights
+      # dashboard for all labs. Left off for the conference: the site stays
+      # fully static, no backend calls.
+      # pulse-endpoint: "https://pulse.example.com"
