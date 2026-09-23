@@ -44,3 +44,18 @@ sbx policy ls
 ```
 
 ::terminal{id=demo height=300}
+
+---
+
+<!--
+layout: title
+byline: Docker Sandboxes
+-->
+
+# Run agents freely. Safely.
+
+Everything from this session is yours to keep running.
+
+- The full workshop, self-guided: **dockterdan.github.io/sbx-101**
+- The follow-along terminals: **bit.ly/sbx101-cmd**
+- The real CLI on your machine: **bit.ly/sbx101-setup**
