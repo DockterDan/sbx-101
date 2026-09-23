@@ -11,7 +11,7 @@ eyebrow: Security needs layers
 
 :::card{label="Breakable by design" accent=red}
 
-- Context files are suggestions — the model decides whether to follow
+- Context files are suggestions the model can choose to ignore
 - A container is not isolation — the kernel is still shared
 - Containers were built for static code, not for agents
 - Credentials in environment variables can be read and exfiltrated
