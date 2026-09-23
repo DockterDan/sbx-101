@@ -20,6 +20,11 @@ tracking: false
 
 theme: light
 
+# The bottom chrome band carries the join link so it is always on screen,
+# never scrolled out of view.
+brand:
+  source: "Join this session: bit.ly/sbx101-cmd"
+
 simulator: ../sbx-101/simulator.yaml
 
 # Same terminal ids as the hands-on lab: A talks to the agent, B watches logs.
