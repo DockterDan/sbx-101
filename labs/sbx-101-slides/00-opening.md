@@ -14,6 +14,50 @@ How we run AI agents safely at Docker — and how you can too.
 ---
 
 <!--
+layout: split
+eyebrow: Day 0 · September 23
+-->
+
+# Today at Docker
+
+<!-- region -->
+
+### Workshops
+
+| Time | Workshop | Lead | Where |
+| ---- | -------- | ---- | ----- |
+| 10:45 – 12:45 | SBX 101: Hands-on with Docker Sandboxes | Dan Ndombe | Stage 8 |
+| 1:30 – 3:00 | The AI-Ready Developer Environment — Local Setup, Reproducibility, and Docker | Michael Irwin | Stage 8 |
+| 3:45 – 5:30 | Docker's Agentic Platform: Sandboxes, MCP, and the Infrastructure of Autonomous Development | Oleg Šelajev | Stage 8 |
+| 3:45 – 5:30 | Securing the Agentic Stack: Docker Hardened Images and Supply Chain Security | Ajeet Raina | Stage 10 |
+
+<!-- region -->
+
+### Docker Room stage
+
+| Time | Session | Speaker |
+| ---- | ------- | ------- |
+| 10:00 – 10:30 | Making "Works on All Machines" Work for Agent Environments | Michael Irwin |
+| 11:00 – 11:30 | Docker does that? Five Docker capabilities you did not know about | Ajeet Raina + Kristiyan Velkov |
+| 1:00 – 1:30 | Tools, Sandboxes, and the Plumbing of Agentic Development | Oleg Šelajev |
+| 2:00 – 2:30 | Supply Chain Security When Agents Write the Code | Ajeet Raina |
+| 3:00 – 3:30 | Give the Agent Its Own Machine | Dan Ndombe |
+
+---
+
+<!-- layout: default -->
+
+# This session is hands-on
+
+- Have your laptop ready. You will receive a link to follow along when the
+  demos begin.
+- Everything runs in your browser; there is nothing to install and no API key
+  is required.
+- To run the real CLI instead, set it up now: **bit.ly/sbx101-setup**.
+
+---
+
+<!--
 layout: default
 eyebrow: The foundation
 -->
