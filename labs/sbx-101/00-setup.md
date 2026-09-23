@@ -1,5 +1,8 @@
 # Welcome to SBX 101
 
+> **In the room?** The follow-along terminal for the live session is at
+> [bit.ly/sbx101-cmd](https://bit.ly/sbx101-cmd).
+
 **Docker Sandboxes (sbx)** run AI coding agents — Claude Code, Codex, Gemini, OpenCode — inside an isolated Linux microVM instead of loose on your laptop.
 
 

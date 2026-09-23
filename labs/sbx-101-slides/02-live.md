@@ -7,7 +7,7 @@ eyebrow: Live
 # Live demonstration
 
 We will create a sandbox, inspect it, and change its network policy while it
-runs.
+runs. Follow along at **bit.ly/sbx101-cmd**.
 
 ---
 
