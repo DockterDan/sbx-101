@@ -63,6 +63,12 @@ AUTHORING-NOTES.
   grid button back to the landing page; the lab view has a back arrow in the
   top-left instead. One affordance in one place across both views would help
   learners moving between a workshop's entries.
+- **Embedded terminal panels want learner-side sizing.** On a terminal-only
+  page, a draggable split between two panels — or a collapse control so one
+  terminal can go full-height — would remove the need to author fixed pixel
+  heights per layout. This lab works around it with two slides of the same
+  machine (one-terminal and two-terminal layouts), at the cost of the
+  transcript clearing on the flip.
 - **Presenter broadcast would be a strong live-session feature.** Two tiers
   surfaced while rehearsing a guided room. Locally: the pop-out terminal
   *moves* the panel (a portal), leaving a placeholder in the main window — a
