@@ -112,5 +112,8 @@ AUTHORING-NOTES.
   and y/N confirmations still use the older bare-token pattern with the `▊`
   convention; migrating them to `then.input` is post-conference cleanup.
 - `/exit` instead of Ctrl+C twice; `sbx reset` works in-lab (state-level).
-- Rule UUIDs, timestamps, digests and layer hashes frozen from captures for
-  determinism.
+- Rule UUIDs, digests and layer hashes frozen from captures for determinism.
+- The real `sbx policy log` includes a LAST SEEN timestamp column. The engine
+  has no clock (deterministic by design), so rather than showing fictitious
+  times, the simulated log omits that column entirely; events and counts
+  accumulate along the flow.

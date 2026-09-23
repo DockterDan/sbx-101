@@ -61,13 +61,13 @@ state:
 
 settings:
   streaming: true
-  agentThinkMs: 800
+  agentThinkMs: 2600
   pace:
-    layer: 350
-    boot: 600
-    pull: 1000
-    build: 900
-    scan: 1300
+    layer: 550
+    boot: 1400
+    pull: 2200
+    build: 2000
+    scan: 3200
 
 # One control so the Settings dialog (and its Reset button) exists in the UI.
 # It mirrors Step 3's allow rule — useful if a learner skips ahead.
@@ -338,9 +338,9 @@ scenarios:
       state: { bravo.exists: true, bravo.running: true }
     then:
       output:
-        - "SANDBOX         AGENT    STATUS    PORTS   WORKSPACE"
-        - "sandbox-alpha   claude   running           /Users/me/workshop/sbx"
-        - "sandbox-bravo   claude   running           /Users/me/workshop/sbx"
+        - "SANDBOX         AGENT    STATUS    PORTS                    WORKSPACE"
+        - "sandbox-alpha   claude   running   /Users/me/workshop/sbx"
+        - "sandbox-bravo   claude   running   /Users/me/workshop/sbx"
 
   - id: ls-with-bravo-stopped
     when:
@@ -348,9 +348,9 @@ scenarios:
       state: { bravo.exists: true, bravo.running: false }
     then:
       output:
-        - "SANDBOX         AGENT    STATUS    PORTS   WORKSPACE"
-        - "sandbox-alpha   claude   running           /Users/me/workshop/sbx"
-        - "sandbox-bravo   claude   stopped           /Users/me/workshop/sbx"
+        - "SANDBOX         AGENT    STATUS    PORTS                    WORKSPACE"
+        - "sandbox-alpha   claude   running   /Users/me/workshop/sbx"
+        - "sandbox-bravo   claude   stopped   /Users/me/workshop/sbx"
 
   - id: ls-with-kits
     when:
@@ -358,9 +358,9 @@ scenarios:
       state: { kits.exists: true }
     then:
       output:
-        - "SANDBOX         AGENT    STATUS    PORTS   WORKSPACE"
-        - "sandbox-alpha   claude   running           /Users/me/workshop/sbx"
-        - "sandbox-kits    claude   running           /Users/me/workshop/sbx"
+        - "SANDBOX         AGENT    STATUS    PORTS                    WORKSPACE"
+        - "sandbox-alpha   claude   running   /Users/me/workshop/sbx"
+        - "sandbox-kits    claude   running   /Users/me/workshop/sbx"
 
   - id: ls-alpha-only
     when:
@@ -368,8 +368,8 @@ scenarios:
       state: { alpha.exists: true }
     then:
       output:
-        - "SANDBOX         AGENT    STATUS    PORTS   WORKSPACE"
-        - "sandbox-alpha   claude   running           /Users/me/workshop/sbx"
+        - "SANDBOX         AGENT    STATUS    PORTS                    WORKSPACE"
+        - "sandbox-alpha   claude   running   /Users/me/workshop/sbx"
 
   - id: ls-empty
     when:
@@ -1213,21 +1213,21 @@ scenarios:
     then:
       output:
         - "Blocked requests:"
-        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                REASON                                  LAST SEEN         COUNT"
-        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)   No matching allow rule (default deny)   11:11:24 23-Sep   16"
-        - "sandbox-alpha   network   www.jpl.nasa.gov:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:www.jpl.nasa.gov:443)                     No matching allow rule (default deny)   11:08:24 23-Sep   1"
-        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                     No matching allow rule (default deny)   10:51:26 23-Sep   1"
-        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                        No matching allow rule (default deny)   10:43:24 23-Sep   2"
-        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                           No matching allow rule (default deny)   10:43:24 23-Sep   2"
+        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                REASON                                  COUNT"
+        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)   No matching allow rule (default deny)   16"
+        - "sandbox-alpha   network   www.jpl.nasa.gov:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:www.jpl.nasa.gov:443)                     No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                     No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                        No matching allow rule (default deny)   2"
+        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                           No matching allow rule (default deny)   2"
         - ""
         - "Allowed requests:"
-        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   LAST SEEN         COUNT"
-        - "sandbox-alpha   network   api.anthropic.com:443         forward                          11:11:40 23-Sep   40"
-        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   11:10:41 23-Sep   6"
-        - "sandbox-alpha   network   github.com:443                forward-bypass                   11:08:22 23-Sep   4"
-        - "sandbox-alpha   network   nasa.gov:443                  forward-bypass                   11:06:54 23-Sep   1"
-        - "sandbox-alpha   network   pypi.org:443                  forward-bypass                   10:43:24 23-Sep   1"
-        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          10:43:18 23-Sep   22"
+        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   COUNT"
+        - "sandbox-alpha   network   api.anthropic.com:443         forward                          40"
+        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   6"
+        - "sandbox-alpha   network   github.com:443                forward-bypass                   4"
+        - "sandbox-alpha   network   nasa.gov:443                  forward-bypass                   1"
+        - "sandbox-alpha   network   pypi.org:443                  forward-bypass                   1"
+        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          22"
 
   - id: policy-log-mcp
     when:
@@ -1236,21 +1236,21 @@ scenarios:
     then:
       output:
         - "Blocked requests:"
-        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                       REASON                                  LAST SEEN         COUNT"
-        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)          No matching allow rule (default deny)   11:02:50 23-Sep   12"
-        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                            No matching allow rule (default deny)   10:51:26 23-Sep   1"
-        - "sandbox-alpha   network   pypi.org:443                             forward   denied: rule \"9701dc6e-be32-488d-8dfc-586058837e46\" matched op(action=net:connect:tcp, resource=net:domain:pypi.org:443)   Denied by local rule                    10:46:54 23-Sep   2"
-        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                               No matching allow rule (default deny)   10:43:24 23-Sep   2"
-        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                                  No matching allow rule (default deny)   10:43:24 23-Sep   2"
+        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                         REASON                                  COUNT"
+        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)            No matching allow rule (default deny)   12"
+        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                              No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   pypi.org:443                             forward   denied: rule \"9701dc6e-be32-488d-8dfc-586058837e46\" matched op(action=net:connect:tcp, resource=net:domain:pypi.org:443)   Denied by local rule                    2"
+        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                                 No matching allow rule (default deny)   2"
+        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                                    No matching allow rule (default deny)   2"
         - ""
         - "Allowed requests:"
-        - "SANDBOX         TYPE      HOST                             PROXY            RULE                     REASON   LAST SEEN         COUNT"
-        - "sandbox-alpha   network   api.anthropic.com:443            forward                                            11:02:52 23-Sep   34"
-        - "sandbox-alpha   network   mcp-gateway.docker.internal:80   forward          <daemon-managed alias>            11:02:24 23-Sep   3"
-        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443      forward                                            10:43:18 23-Sep   22"
-        - "sandbox-alpha   network   downloads.claude.ai:443          forward-bypass                                     11:01:24 23-Sep   5"
-        - "sandbox-alpha   network   nasa.gov:443                     forward-bypass                                     10:46:54 23-Sep   1"
-        - "sandbox-alpha   network   github.com:443                   forward-bypass                                     10:46:53 23-Sep   2"
+        - "SANDBOX         TYPE      HOST                             PROXY            RULE   REASON                   COUNT"
+        - "sandbox-alpha   network   api.anthropic.com:443            forward                                          34"
+        - "sandbox-alpha   network   mcp-gateway.docker.internal:80   forward                 <daemon-managed alias>   3"
+        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443      forward                                          22"
+        - "sandbox-alpha   network   downloads.claude.ai:443          forward-bypass                                   5"
+        - "sandbox-alpha   network   nasa.gov:443                     forward-bypass                                   1"
+        - "sandbox-alpha   network   github.com:443                   forward-bypass                                   2"
 
   - id: policy-log-wiki
     when:
@@ -1259,20 +1259,20 @@ scenarios:
     then:
       output:
         - "Blocked requests:"
-        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                       REASON                                  LAST SEEN         COUNT"
-        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)          No matching allow rule (default deny)   10:47:50 23-Sep   8"
-        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                            No matching allow rule (default deny)   10:51:26 23-Sep   1"
-        - "sandbox-alpha   network   pypi.org:443                             forward   denied: rule \"9701dc6e-be32-488d-8dfc-586058837e46\" matched op(action=net:connect:tcp, resource=net:domain:pypi.org:443)   Denied by local rule                    10:46:54 23-Sep   2"
-        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                               No matching allow rule (default deny)   10:43:24 23-Sep   2"
-        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                                  No matching allow rule (default deny)   10:43:24 23-Sep   2"
+        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                         REASON                                  COUNT"
+        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)            No matching allow rule (default deny)   8"
+        - "sandbox-alpha   network   en.wikipedia.org:443                     forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:en.wikipedia.org:443)                              No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   pypi.org:443                             forward   denied: rule \"9701dc6e-be32-488d-8dfc-586058837e46\" matched op(action=net:connect:tcp, resource=net:domain:pypi.org:443)   Denied by local rule                    2"
+        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                                 No matching allow rule (default deny)   2"
+        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                                    No matching allow rule (default deny)   2"
         - ""
         - "Allowed requests:"
-        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   LAST SEEN         COUNT"
-        - "sandbox-alpha   network   api.anthropic.com:443         forward                          10:51:30 23-Sep   24"
-        - "sandbox-alpha   network   nasa.gov:443                  forward-bypass                   10:46:54 23-Sep   1"
-        - "sandbox-alpha   network   github.com:443                forward-bypass                   10:46:53 23-Sep   2"
-        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          10:43:18 23-Sep   22"
-        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   10:41:50 23-Sep   5"
+        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   COUNT"
+        - "sandbox-alpha   network   api.anthropic.com:443         forward                          24"
+        - "sandbox-alpha   network   nasa.gov:443                  forward-bypass                   1"
+        - "sandbox-alpha   network   github.com:443                forward-bypass                   2"
+        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          22"
+        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   5"
 
   - id: policy-log-curls
     when:
@@ -1281,20 +1281,20 @@ scenarios:
     then:
       output:
         - "Blocked requests:"
-        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                REASON                                  LAST SEEN         COUNT"
-        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)   No matching allow rule (default deny)   10:44:49 23-Sep   3"
-        - "sandbox-alpha   network   nasa.gov:443                             forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:nasa.gov:443)                             No matching allow rule (default deny)   10:43:24 23-Sep   1"
-        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                        No matching allow rule (default deny)   10:43:24 23-Sep   1"
-        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                           No matching allow rule (default deny)   10:43:24 23-Sep   1"
+        - "SANDBOX         TYPE      HOST                                     PROXY     RULE                                                                                                                REASON                                  COUNT"
+        - "sandbox-alpha   network   http-intake.logs.us5.datadoghq.com:443   forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:http-intake.logs.us5.datadoghq.com:443)   No matching allow rule (default deny)   3"
+        - "sandbox-alpha   network   nasa.gov:443                             forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:nasa.gov:443)                             No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   wikipedia.org:443                        forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:wikipedia.org:443)                        No matching allow rule (default deny)   1"
+        - "sandbox-alpha   network   reddit.com:443                           forward   no applicable policies for op(action=net:connect:tcp, resource=net:domain:reddit.com:443)                           No matching allow rule (default deny)   1"
         - ""
         - "Allowed requests:"
-        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   LAST SEEN         COUNT"
-        - "sandbox-alpha   network   api.anthropic.com:443         forward                          10:44:44 23-Sep   16"
-        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          10:43:18 23-Sep   22"
-        - "sandbox-alpha   network   pypi.org:443                  forward-bypass                   10:43:24 23-Sep   1"
-        - "sandbox-alpha   network   github.com:443                forward-bypass                   10:43:23 23-Sep   1"
-        - "sandbox-alpha   network   claude.com:443                browser-open                     10:43:01 23-Sep   1"
-        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   10:41:50 23-Sep   5"
+        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   COUNT"
+        - "sandbox-alpha   network   api.anthropic.com:443         forward                          16"
+        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          22"
+        - "sandbox-alpha   network   pypi.org:443                  forward-bypass                   1"
+        - "sandbox-alpha   network   github.com:443                forward-bypass                   1"
+        - "sandbox-alpha   network   claude.com:443                browser-open                     1"
+        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   5"
 
   - id: policy-log-baseline
     when:
@@ -1303,11 +1303,11 @@ scenarios:
     then:
       output:
         - "Allowed requests:"
-        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   LAST SEEN         COUNT"
-        - "sandbox-alpha   network   api.anthropic.com:443         forward                          10:44:44 23-Sep   16"
-        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          10:43:18 23-Sep   22"
-        - "sandbox-alpha   network   claude.com:443                browser-open                     10:43:01 23-Sep   1"
-        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   10:41:50 23-Sep   5"
+        - "SANDBOX         TYPE      HOST                          PROXY            RULE   REASON   COUNT"
+        - "sandbox-alpha   network   api.anthropic.com:443         forward                          16"
+        - "sandbox-alpha   network   mcp-proxy.anthropic.com:443   forward                          22"
+        - "sandbox-alpha   network   claude.com:443                browser-open                     1"
+        - "sandbox-alpha   network   downloads.claude.ai:443       forward-bypass                   5"
 
   - id: policy-log-empty
     when:
